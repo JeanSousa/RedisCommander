@@ -1,0 +1,32 @@
+version: '3.8'
+
+networks:
+  redis_network:
+    driver: bridge
+
+volumes:
+  redis_vol:
+
+services:
+  redisCommander:
+    image: rediscommander/redis-commander:${COMMANDER_TAG}
+    depends_on:
+      - redis 
+    environment:
+      - REDIS_PORT=6379
+      - REDIS_HOST=redis
+    ports:
+      - 8081:8081
+    networks:
+      - redis_network
+    
+  redis:  
+    image: redis:${REDIS_TAG}
+    restart: always
+    volumes:
+      - redis_vol:/usr/local/etc/redis
+    ports:
+      - 6379:6379
+    networks:
+      - redis_network 
+    
