@@ -30,7 +30,3 @@ docker-compose up -d
       <td>127.0.0.1:6379</td>
   </tr>
 </table>
-
-# Conexao
-![image](https://github.com/JeanSousa/PgAdminPostgresDB/assets/38965322/0b468bd0-7e44-4d1e-880f-d825f272b55b)
-
